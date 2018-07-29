@@ -31,7 +31,7 @@ import (
 
 func main() {
     realm, _ := url.Parse("http://localhost:5100/")
-    returnTo, _ := url.Parse("http://localhost:5100/redirect?someStatelessValue=AStatelessValue")
+    returnTo, _ := url.Parse("http://localhost:5100/callback?someStatelessValue=AStatelessValue")
 
     http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
         u, err := stopengo.RedirectURL(realm, returnTo)
@@ -40,7 +40,7 @@ func main() {
         }
         http.Redirect(w, r, u, 301)
     })
-    http.HandleFunc("/redirect", func(w http.ResponseWriter, r *http.Request) {
+    http.HandleFunc("/callback", func(w http.ResponseWriter, r *http.Request) {
         if err := stopengo.Validate(r); err != nil {
             panic(err)
         }
