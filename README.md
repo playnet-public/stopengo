@@ -5,6 +5,11 @@
 Stopengo is a simple-to-use Steam OpenID login authorizer.
 It provides several functions to create and read Steam OpenID requests.
 
+We explicitly do not serve the general Steam Web API because this is only an OpenID authenticator. Stopengo only can gather the SteamID64 from a request.
+
+Although, there are several other go packages that solve the problem of getting more information about the user, like:
+* https://github.com/Philipp15b/go-steamapi
+
 ## Get Stopengo
 
 ```sh
