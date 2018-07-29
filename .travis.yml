@@ -2,7 +2,6 @@ language: go
 go:
 - '1.9.7'
 script:
-- go generate ./...
 - go test -v ./...
 notification:
   email:
