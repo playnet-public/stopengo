@@ -61,7 +61,7 @@ func RedirectURL(realm, returnTo *url.URL) (string, error) {
 }
 
 //Validate checks an incoming request from Steam for validity
-func Validate(r *http.Request, realm, returnTo *url.URL) error {
+func Validate(r *http.Request) error {
 	u, err := url.Parse(OpenIDProvider)
 	if err != nil {
 		return err
@@ -75,7 +75,7 @@ func Validate(r *http.Request, realm, returnTo *url.URL) error {
 	vals.Set("openid.ns", r.FormValue("openid.ns"))
 
 	for _, v := range strings.Split(r.FormValue("openid.signed"), ",") {
-		vals.Set("openid."+v, r.FormValue("openid"+v))
+		vals.Set("openid."+v, r.FormValue("openid."+v))
 	}
 
 	response, err := http.PostForm(u.String(), vals)
@@ -94,7 +94,7 @@ func Validate(r *http.Request, realm, returnTo *url.URL) error {
 		return errInvalidOpenIDNS
 	}
 
-	if lines[1] == "is_valid:false" {
+	if strings.HasSuffix(lines[1], "false") {
 		return errInvalidOpenIDRequest
 	}
 
