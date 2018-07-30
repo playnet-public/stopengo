@@ -26,7 +26,7 @@ func TestRedirectURL(t *testing.T) {
 	vals.Set("openid.mode", stopengo.OpenIDModeCheckIDSetup)
 	vals.Set("openid.ns", stopengo.OpenIDNS)
 	vals.Set("openid.realm", fmt.Sprintf(
-		"%s://%s:%s",
+		"%s://%s",
 		realm.Scheme,
 		realm.Host,
 	))
