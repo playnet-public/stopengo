@@ -29,7 +29,6 @@ func TestRedirectURL(t *testing.T) {
 		"%s://%s:%s",
 		realm.Scheme,
 		realm.Host,
-		realm.Port(),
 	))
 	vals.Set("openid.return_to", returnTo.String())
 	nUrl.RawQuery = vals.Encode()
