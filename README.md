@@ -58,8 +58,6 @@ func main() {
 }
 ```
 
----
-
 ### Front- and Backend Usage
 
 The server listening on port 8081 is the example frontend whereas the server listening on port 8088 is the example backend validation server.
