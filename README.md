@@ -104,7 +104,7 @@ func main() {
 	}()
 
 	realm, _ := url.Parse("http://localhost")
-	returnTo, _ := url.Parse("http://localhost:8083/callback")
+	returnTo, _ := url.Parse("http://localhost:8081/callback")
 
 	router := mux.NewRouter()
 	router.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
@@ -126,6 +126,6 @@ func main() {
 		}
 		w.Write(b)
 	})
-	http.ListenAndServe(":8083", router)
+	http.ListenAndServe(":8081", router)
 }
 ```
