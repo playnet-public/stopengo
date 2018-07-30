@@ -48,10 +48,9 @@ func RedirectURL(realm, returnTo *url.URL) (string, error) {
 	vals.Set("openid.mode", OpenIDModeCheckIDSetup)
 	vals.Set("openid.ns", OpenIDNS)
 	vals.Set("openid.realm", fmt.Sprintf(
-		"%s://%s:%s",
+		"%s://%s",
 		realm.Scheme,
 		realm.Host,
-		realm.Port(),
 	))
 	vals.Set("openid.return_to", returnTo.String())
 
