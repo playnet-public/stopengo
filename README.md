@@ -18,6 +18,8 @@ go get github.com/playnet-public/stopengo
 
 ## Example
 
+### Single Domain Usage
+
 ```go
 package main
 
@@ -54,4 +56,13 @@ func main() {
     })
     http.ListenAndServe(":5100", nil)
 }
+```
+
+---
+
+### Front- and Backend Usage
+
+The server listening on port 8081 is the example frontend whereas the server listening on port 8088 is the example backend validation server.
+
+```go
 ```
